@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	{% load static %}
+	<link rel="shortcut icon" href="merger/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger</title>
+</head>
+<style>
+.bg {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background-image: url("{%  static 'ba.jpg' %}");
+    background-size: 100% 100%;
+    background-position: top center
+}
+
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+</style>
+<body style="background-color:#98FB98;">
+
+    <div class="centered" >
+
+    <h5 class="text-center">Merge PDFs</h5>
+
+  
+    
+     <form method="POST" class="post-form" enctype="multipart/form-data"> 
+<h3>select files:</h3> 
+	 
+          {% csrf_token %}
+          {{ form }}  		  
+          
+          <button type="submit" class="save btn btn-primary">Merge</button>  
+  </form>  
+  {% if out != "" %}
+
+  <div class="text-center py-2">
+  <h6>PDFs Merged</h6>
+    <a href="{{  out }}" download  >Download {{ out }}</a>
+  </div>
+
+{% endif %}
+    
+
+ 
+</div>
+
+
+</body>
+</html>
