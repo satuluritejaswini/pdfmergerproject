@@ -1,1 +1,1 @@
-web gunicorn PDF-MERGER.wsgi
+web gunicorn mysite.wsgi
