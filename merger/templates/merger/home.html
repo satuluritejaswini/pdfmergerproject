@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  {% load static %}
+    <title>Merge Multiple PDF Files</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+	<link href="https://fonts.googleapis.com/css2?family=Arima:wght@600&family=Satisfy&display=swap" rel="stylesheet">
+  </head>
+  <style>
+  .container{
+  padding: 100px;
+  }
+  #bg{
+    background: url("/static/bg.png")  50% 0 no-repeat fixed;
+    height: 650px;
+    padding: 100px 0 0 0; 
+    }
+	.text-center{
+	    font-family: 'Satisfy', sans-serif;
+		color:#191970;
+	}
+  .centered {
+  
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+</style>
+  <body id="bg" style=background-image: url('{% static "bg.png"%}');>
+      <div class="container">
+	  
+          <h1 class="text-center">
+              Merge PDF Files
+          </h1>
+          <form method="POST" class="post-form" enctype="multipart/form-data">
+            <div class="centered">
+            
+			{% csrf_token %}
+          {{ form }}
+                <button class="btn btn-lg btn-secondary fw-bold border-white bg-white">
+                    Merge PDF
+                </button>
+           </div>
+        </form>
+      </div>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>

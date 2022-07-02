@@ -1,59 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-	{% load static %}
-	<link rel="shortcut icon" href="merger/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Merger</title>
-</head>
-<style>
-.bg {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    background-image: url("{%  static 'ba.jpg' %}");
-    background-size: 100% 100%;
-    background-position: top center
-}
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+  {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-.centered {
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    <title>Merge Multiple PDF Files</title>
+	
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+    
+
+    
+
+<link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+	  .icon{
+	  vertical-align: top;
+	  background-position:10% 10%;
+	  height:2px;
+	  width:2px;
+	  
+	  }
+	  
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+ .center{
+	  text-align:center;
+	  align-items:center;
+	  
+	   position: absolute;
+       top: 50%;
+       left: 50%;
     transform: translate(-50%, -50%)
-}
-</style>
-<body style="background-color:#98FB98;">
+	}
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
 
-    <div class="centered" >
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
 
-    <h5 class="text-center">Merge PDFs</h5>
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
 
-  
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+	  .contact{
+	  background-color:  black;
+	  }
+    </style>
+
     
-     <form method="POST" class="post-form" enctype="multipart/form-data"> 
-<h3>select files:</h3> 
-	 
-          {% csrf_token %}
-          {{ form }}  		  
-          
-          <button type="submit" class="save btn btn-primary">Merge</button>  
-  </form>  
-  {% if out != "" %}
+    <!-- Custom styles for this template -->
+    <link href="/static/cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-black">
+   
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <div class="icon">
+	  <img src='{% static "icon.ico"%}' alt="TAJ!!">
+	  </div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        
+      </nav>
+    </div>
+  </header>
 
-  <div class="text-center py-2">
-  <h6>PDFs Merged</h6>
-    <a href="{{  out }}" download  >Download {{ out }}</a>
-  </div>
-
-{% endif %}
+  <main class="px-3">
     
+	<div class="center">
+	<h1>Merge PDF Files</h1>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+            <div class="centered">
+            
+			{% csrf_token %}
+          {{ form }}
+                <button class="btn btn-lg btn-secondary fw-bold border-white bg-white">
+                    Merge PDF
+                </button>
+           </div>
+        </form>
+		</div>
+		<div class="contact">
+<a href="https://www.linkedin.com/in/jyothsna-karra-81bb85219/">LinkedIn</a>
+<a href="https://github.com/jyothsnakarra">Github</a>
+</div>
+  </main>
 
- 
 </div>
 
-
-</body>
+  </body>
 </html>
