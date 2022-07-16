@@ -17,17 +17,22 @@
 	#process{
 	        background: linear-gradient(to bottom, #ffffcc 71%, #0066ff 100%);
 	}
-	
-.center{
+	.center{
 	  text-align:center;
 	  align-items:center;
-	  
+	  height:100px;
 	   position: relative;
        top: 50%;
        left: 50%;
     transform: translate(-50%, -50%)
 	}
-	.liss {
+	#container {
+  padding: 20px;
+  text-align: center;
+}
+
+}
+.liss {
   display: inline-block;
   }
   .gitt {
@@ -60,7 +65,7 @@
                 </div>
             </div>
             <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5">We can help you to merge multiple pdfs .</p><a class="btn btn-primary btn-xl" role="button" href="#services">LTE'S GET STARTED...</a>
+                <p class="text-faded mb-5">We can help you to merge multiple pdfs .</p><a class="btn btn-primary btn-xl" role="button" href="#process">LTE'S GET STARTED...</a>
             </div>
         </div>
     </header>
@@ -118,13 +123,15 @@
 	<div class="center">
 	
     <form method="POST" class="post-form" enctype="multipart/form-data">
-            <div class="centered">
+            <div class="space">
             
 			{% csrf_token %}
           {{ form }}
+               <div id="container">
                 <button class="btn btn-lg btn-secondary fw-bold border-white bg-white">
                     Merge PDF
                 </button>
+				</div>
            </div>
         </form>
 		</div>
